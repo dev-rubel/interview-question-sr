@@ -28,7 +28,7 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <div class="col-lg-5 d-none d-lg-block bg-register-image"
-                     style="background-image: url('https://mediusware.com/assets/img/logo-mw.png'); background-size: contain; background-repeat: no-repeat"></div>
+                     style="background-image: url('logo-mw.png'); background-size: contain; background-repeat: no-repeat"></div>
                 <div class="col-lg-7 pt-5">
                     @yield('content')
                 </div>
