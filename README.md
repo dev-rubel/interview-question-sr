@@ -1,61 +1,40 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<p align="center"><a href="https://mediusware.com" target="_blank"><img src="https://mediusware.com/assets/logo.17d47cfe.svg" width="250"></a></p>
 
-## About Laravel
+> You have to work in an existing project here
+> https://drive.google.com/file/d/1-Ngdc3PpQfL6BrbwA1ElwqbDuWaH8KSh/view?usp=sharing
+> Make a GitHub repository in your GitHub account   
+> First install your project and push your initial commit before start coding to your  master branch   Then create a new branch **dev.1.0.0** and checkout in it and you will write your code  in this new branch and push your final work in this branch   
+> **Solve all the tasks given below.**
+>  Then submit the GitHub repository URL in the bottom page form.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tasks:  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ - [x] Import our given SQL file into your database (you will find our SQL file in base directory)
+ - [x] First of all using  https://bcrypt-generator.com or  https://bcryptgenerator.com/ change user password as your own and login to the system.  
+ - [x] Check the data flow diagrams https://prnt.sc/u93yw2 .You need to apply this data  flow for listing products on the table and insert new products into the database.  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Data List:
 
-## Learning Laravel
+ - [x] Make a list of view page of Products table data the same as https://prnt.sc/9dGgrwi9tJro      
+ - [x] Make a data summary of the products same as https://prntscr.com/u945c2                                            
+ - [x] Make data pagination of products same as https://prntscr.com/u945nv                                               
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Data Filter: 
 
-## Laravel Sponsors
+ - [x] Make a product filter with product title, product variant, price range and date.  Check  https://prnt.sc/ySCjT_bcM9Sm    
+ - [x] Make sure the product variant data show dynamically and group by product variant table’s variant column same as https://prnt.sc/vsxSKKa1-WwI  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ 
+## Create Product:           
 
-### Premium Partners
+ - [ ] (Click on Product and then Create Product from Left sidebar) this page has been designed  with vuejs you will find the code in the directory: /resources/js/components/CreateProduct.vue.  
+ - [x] You can use any of your favourite JavaScript frameworks.  
+ - [ ] Insert data into products, product_variants, product_product_prices and  product_images while create a product ,check the screenshot : https://prntscr.com/u94u5i  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+    
+## Edit Product:     
 
-## Contributing
+ - [ ] Data should be loaded as same as given data in the edit product page. And it can be updated Your github urlYour Feedback Your evaluation url has been submitted successfully, we will review your assessment shortlySubmit Answer URL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
