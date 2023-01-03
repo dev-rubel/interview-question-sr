@@ -24,7 +24,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Media</h6>
                     </div>
                     <div class="card-body border">
-                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+                        <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" @vdropzone-thumbnail="vfileAdded"></vue-dropzone>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                                            class="float-right text-primary"
                                            style="cursor: pointer;">Remove</label>
                                     <label v-else for="">.</label>
-                                    <input-tag v-model="item.tags" @input="checkVariant" class="form-control"></input-tag>
+                                    <input v-model="item.tags" @input="checkVariant" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -114,6 +114,7 @@ export default {
     },
     data() {
         return {
+            number_of_file: 0,
             product_name: '',
             product_sku: '',
             description: '',
@@ -134,6 +135,16 @@ export default {
         }
     },
     methods: {
+        vfileAdded(file) {
+            let imgs = this.images
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+
+            reader.onload = function(event) {
+                imgs.push(event.target.result)
+            };
+        },
+
         // it will push a new object into product variant
         newVariant() {
             let all_variants = this.variants.map(el => el.id)
@@ -152,16 +163,22 @@ export default {
             let tags = [];
             this.product_variant_prices = [];
             this.product_variant.filter((item) => {
-                tags.push(item.tags);
-            })
 
-            this.getCombn(tags).forEach(item => {
                 this.product_variant_prices.push({
-                    title: item,
+                    title: item.tags,
                     price: 0,
                     stock: 0
                 })
+                // tags.push(item.tags);
             })
+
+            // this.getCombn(tags).forEach(item => {
+            //     this.product_variant_prices.push({
+            //         title: item,
+            //         price: 0,
+            //         stock: 0
+            //     })
+            // })
         },
 
         // combination algorithm
@@ -195,7 +212,6 @@ export default {
                 console.log(error);
             })
 
-            console.log(product);
         }
 
 

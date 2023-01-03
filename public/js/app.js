@@ -2028,6 +2028,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      number_of_file: 0,
       product_name: '',
       product_sku: '',
       description: '',
@@ -2048,6 +2049,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    vfileAdded: function vfileAdded(file) {
+      var imgs = this.images;
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = function (event) {
+        imgs.push(event.target.result);
+      };
+    },
     // it will push a new object into product variant
     newVariant: function newVariant() {
       var all_variants = this.variants.map(function (el) {
@@ -2074,15 +2084,19 @@ __webpack_require__.r(__webpack_exports__);
       var tags = [];
       this.product_variant_prices = [];
       this.product_variant.filter(function (item) {
-        tags.push(item.tags);
-      });
-      this.getCombn(tags).forEach(function (item) {
         _this.product_variant_prices.push({
-          title: item,
+          title: item.tags,
           price: 0,
           stock: 0
-        });
-      });
+        }); // tags.push(item.tags);
+
+      }); // this.getCombn(tags).forEach(item => {
+      //     this.product_variant_prices.push({
+      //         title: item,
+      //         price: 0,
+      //         stock: 0
+      //     })
+      // })
     },
     // combination algorithm
     getCombn: function getCombn(arr, pre) {
@@ -2113,7 +2127,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
-      console.log(product);
     }
   },
   mounted: function mounted() {
@@ -50566,7 +50579,8 @@ var render = function() {
             [
               _c("vue-dropzone", {
                 ref: "myVueDropzone",
-                attrs: { id: "dropzone", options: _vm.dropzoneOptions }
+                attrs: { id: "dropzone", options: _vm.dropzoneOptions },
+                on: { "vdropzone-thumbnail": _vm.vfileAdded }
               })
             ],
             1
@@ -50638,41 +50652,48 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-8" }, [
-                  _c(
-                    "div",
-                    { staticClass: "form-group" },
-                    [
-                      _vm.product_variant.length != 1
-                        ? _c(
-                            "label",
-                            {
-                              staticClass: "float-right text-primary",
-                              staticStyle: { cursor: "pointer" },
-                              on: {
-                                click: function($event) {
-                                  _vm.product_variant.splice(index, 1)
-                                  _vm.checkVariant
-                                }
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm.product_variant.length != 1
+                      ? _c(
+                          "label",
+                          {
+                            staticClass: "float-right text-primary",
+                            staticStyle: { cursor: "pointer" },
+                            on: {
+                              click: function($event) {
+                                _vm.product_variant.splice(index, 1)
+                                _vm.checkVariant
                               }
-                            },
-                            [_vm._v("Remove")]
-                          )
-                        : _c("label", { attrs: { for: "" } }, [_vm._v(".")]),
-                      _vm._v(" "),
-                      _c("input-tag", {
-                        staticClass: "form-control",
-                        on: { input: _vm.checkVariant },
-                        model: {
-                          value: item.tags,
-                          callback: function($$v) {
-                            _vm.$set(item, "tags", $$v)
+                            }
                           },
+                          [_vm._v("Remove")]
+                        )
+                      : _c("label", { attrs: { for: "" } }, [_vm._v(".")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: item.tags,
                           expression: "item.tags"
                         }
-                      })
-                    ],
-                    1
-                  )
+                      ],
+                      staticClass: "form-control",
+                      domProps: { value: item.tags },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(item, "tags", $event.target.value)
+                          },
+                          _vm.checkVariant
+                        ]
+                      }
+                    })
+                  ])
                 ])
               ])
             }),

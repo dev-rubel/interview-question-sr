@@ -44,7 +44,7 @@
                             <td>{{ nl2br($variant->description) }}</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
-                                    <a href="{{ route('product-variant.edit',$variant) }}" class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('product-variant.edit', $variant) }}" class="btn btn-primary">Edit</a>
                                     <button class="btn btn-danger">delete</button>
                                 </div>
                             </td>
